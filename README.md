@@ -1,3 +1,3 @@
 ### React Course Projects
-from freeCodeCamp.org
-by Scrimba
+# from freeCodeCamp.org
+# by Scrimba
