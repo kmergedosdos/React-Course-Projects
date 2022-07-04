@@ -1,0 +1,18 @@
+.socials {
+   height: 64px;
+   color: #918E9B;
+   background-color: #161619;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.social-links {
+   list-style: none;
+}
+
+.social-links > a {
+   margin: 20px 12px;
+   text-decoration: none;
+   color: inherit;
+}

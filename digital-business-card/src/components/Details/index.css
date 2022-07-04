@@ -1,0 +1,24 @@
+.details-container {
+   margin: auto;
+   padding-right: 30px;
+}
+
+@media screen and (max-width: 600px) {
+   .details-container {
+      padding: 30px;
+      background-color: #1A1B21;
+      color: #F5F5F5;
+   }
+   .header {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 28px;
+   }
+   p {
+      color: #DCDCDC;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 20px;
+   }
+}
