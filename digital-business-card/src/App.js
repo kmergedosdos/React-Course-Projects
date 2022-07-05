@@ -2,6 +2,7 @@ import Profile from './components/Profile';
 import Details from './components/Details';
 import Socials from './components/Socials';
 
+
 function App() {
   return (
     <div className="app-wrapper">

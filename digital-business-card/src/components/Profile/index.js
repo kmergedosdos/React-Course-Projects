@@ -7,12 +7,12 @@ const Profile = () => {
          <div className='img-wrapper'>
             <img src={profilePhoto} alt="Kmerge Dosdos" />
          </div>
-         <h1 className='name'>Kmerge Dosdos</h1>
-         <h3 className='title'>Web Developer</h3>
-         <small className='website'>kdosdos.com</small>
+         <h1 className='name'>Kmerge Boi Dosdos</h1>
+         <h3 className='title'>Software Developer</h3>
+         <small className='website'>kdosdos.website</small>
          <div className='contact'>
-            <a href='kdosdos.com' className='email'>Email</a>
-            <a href='kdosdos.com' className='linkedin'>LinkedIn</a>
+            <a href='mailto:kpdosdos@gmail.com' className='email'><i className="fa-solid fa-envelope"></i> Email</a>
+            <a href='https://www.linkedin.com/in/kmerge-boimilleyr-dosdos-20b399219/' target="_blank" rel="noreferrer noopener" className='linkedin'><i className="fa-brands fa-linkedin"></i> LinkedIn</a>
          </div>
       </div>
    );
