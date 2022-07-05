@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.AppContainer {
+  min-height: 100vh;
+}
+
+section {
+  padding: 70px;
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    padding: 30px;
+  }
+}
