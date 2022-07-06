@@ -1,0 +1,49 @@
+.Card {
+   width: 175px;
+   max-height: 310px;
+   position: relative;
+}
+
+.card--status {
+   min-width: 60px;
+   min-height: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top: 6px;
+   left: 6px;
+   font-size: 10px;
+   background-color: white;
+   padding: 2px 5px;
+   border-radius: 2px;
+}
+
+.card--stats {
+   font-size: 12px;
+}
+
+.card--photo {
+   width: 175px;
+   max-height: 235px;
+   border-radius: 10px;
+}
+
+.card--star {
+   width: 14px;
+   height: 14px;
+   transform: translateY(2px);
+}
+
+.card--rating {
+   display: inline-block;
+   margin-left: 3px;
+}
+
+.card--rating span {
+   color: #918E9B;
+}
+
+.card--title {
+   margin: 5px 0;
+}
