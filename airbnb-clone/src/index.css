@@ -12,11 +12,24 @@ body {
 }
 
 section {
-  padding: 70px;
+  padding: 0 50px;
 }
 
-@media screen and (max-width: 600px) {
+.cards--list {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+@media screen and (max-width: 768px) {
   section {
     padding: 30px;
+  }
+  .cards--list {
+    justify-content: flex-start;
   }
 }

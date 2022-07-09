@@ -1,22 +1,23 @@
 import './index.css';
-import katiePhoto from '../../assets/katie-zaferes.png';
 import starPhoto from '../../assets/star.png';
 
-const Card = () => {
+const Card = (
+   { img, rating, reviewCount, location, title, price, status}
+) => {
    return (
       <div className="Card">
-         <div className="card--status">SOLD OUT</div>
-         <img className="card--photo" src={katiePhoto} alt="Katie Zaferes"/>
+         {status <= 0 && <div className="card--status">SOLD OUT</div>}
+         <img className="card--photo" src={require('../../assets/' + img)} alt="Katie Zaferes"/>
          <div className="card--stats">
             <div>
                <img className="card--star" src={starPhoto} alt="Star"/>
                <p className="card--rating">
-                  5.0
-                  <span> (6) &#8226; USA</span>
+                  {rating}
+                  <span> ({reviewCount}) &#8226; {location}</span>
                </p>
             </div>
-            <p className="card--title">Life lessons with Katie Zaferes</p>
-            <span><strong className="card--cost">From $136</strong> / person</span>
+            <p className="card--title">{title}</p>
+            <span><strong className="card--cost">From ${price}</strong> / person</span>
          </div>
       </div>
    );
