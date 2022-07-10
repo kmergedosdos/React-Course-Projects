@@ -1,0 +1,11 @@
+.Navbar {
+   text-align: center;
+   color: white;
+   background-color: #F55A5A;
+   padding: 20px;
+}
+
+.navbar--text > i {
+   font-size: 20px;
+   margin-right: 2px;
+}

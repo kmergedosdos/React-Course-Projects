@@ -1,0 +1,8 @@
+.JournalCardList {
+   margin: auto;
+   padding: 50px 40px;
+   max-width: 550px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
