@@ -33,7 +33,33 @@
 
 .meme--img {
    width: 100%;
-   margin-top: 36px;
    border: 1px solid #672280;
    border-radius: 5px;
+}
+
+
+.meme--container {
+   margin-top: 36px;
+   position: relative;
+   overflow: hidden;
+}
+
+.meme--toptext, .meme--bottomtext {
+   position: absolute;
+   left: 0;
+   width: 100%;
+   text-align: center;
+   font-family: 'Impact';
+   font-weight: 400;
+   font-size: 32px;
+   color: #FFFFFF;
+   text-shadow: 2px -2px 0 black, 2px 2px 0 black, -2px 2px 0 black, -2px -2px 0 black;
+}
+
+.meme--toptext {
+   top: 20px;
+}
+
+.meme--bottomtext {
+   bottom: 20px;
 }
