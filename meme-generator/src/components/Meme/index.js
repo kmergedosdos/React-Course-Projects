@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './index.css';
-import memesData from '../../memesData';
+// import memesData from '../../memesData';
 
 const Meme = () => {
    const [memeData, setMeme] = useState({
@@ -8,8 +8,16 @@ const Meme = () => {
       bottomText: "",
       imgUrl: ""
    });
+   const [memes, setMemes] = useState([]);
 
-   const memes = memesData.data.memes;
+   useEffect(() => {
+      async function getMemes() {
+         const res = await fetch("https://api.imgflip.com/get_memes");
+         const memesData = await res.json();
+         setMemes(memesData.data.memes);
+      }
+      getMemes();
+   }, []);
 
    function getNewMemeImage(e) {
       e.preventDefault();
