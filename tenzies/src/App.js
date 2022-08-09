@@ -1,9 +1,9 @@
 
 function App() {
   return (
-    <div>
-      <h1>Hello Worlds!</h1>
-    </div>
+    <main className="container">
+      <h1>Tenzies</h1>
+    </main>
   );
 }
 
