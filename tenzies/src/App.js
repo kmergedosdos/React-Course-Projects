@@ -1,8 +1,27 @@
+import Dice from "./components/Dice";
+import { useState } from 'react';
 
 function App() {
+
+  const [allDice, setAllDice] = useState(generateAllDice());
+
+  function generateAllDice() {
+    const dice_list = [];
+    for(let i = 0; i < 10; i++) {
+      dice_list.push(Math.floor(Math.random() * 6 + 1));
+    }
+    return dice_list;
+  }
+
   return (
     <main className="container">
-      <h1>Tenzies</h1>
+      <div className="dice--container">
+          {
+            allDice.map((dice_value, i) => (
+              <Dice key={i} value={dice_value} />
+            ))
+          }
+      </div>
     </main>
   );
 }
