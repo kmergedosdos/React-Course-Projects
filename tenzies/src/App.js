@@ -13,6 +13,10 @@ function App() {
     return dice_list;
   }
 
+  function rollDice() {
+    setAllDice(generateAllDice());
+  }
+
   return (
     <main className="container">
       <div className="dice--container">
@@ -22,6 +26,9 @@ function App() {
             ))
           }
       </div>
+      <button className="roll--button" onClick={rollDice}>
+        Roll
+      </button>
     </main>
   );
 }
