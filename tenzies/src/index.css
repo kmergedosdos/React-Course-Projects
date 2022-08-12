@@ -50,6 +50,10 @@ body {
   cursor: pointer;
 }
 
+.dice.held {
+  background-color: #59E391;
+}
+
 .dice--value {
   font-family: 'Karla';
   font-size: 30px;
