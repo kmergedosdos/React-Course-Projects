@@ -1,10 +1,15 @@
 import Dice from "./components/Dice";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
+import Confetti from 'react-confetti';
 
 function App() {
-
+  const [tenzies, setTenzies] = useState(false);
   const [allDice, setAllDice] = useState(generateAllDice());
+
+  useEffect(() => {
+    setTenzies(allDice.every(dice => dice.isHeld && dice.value === allDice[0].value));
+  }, [allDice, tenzies])
 
   function generateAllDice() {
     const dice_list = [];
@@ -18,14 +23,18 @@ function App() {
     return dice_list;
   }
 
-  function rollDice() {
-    setAllDice(prevDice => {
-      const newDice = prevDice.map(dice => ({
-        ...dice,
-        value: dice.isHeld ? dice.value : Math.floor(Math.random() * 6 + 1)
-      }));
-      return newDice;
-    });
+  function handleButtonClick() {
+    if(tenzies) {
+      setAllDice(generateAllDice());
+    } else {
+      setAllDice(prevDice => {
+        const newDice = prevDice.map(dice => ({
+          ...dice,
+          value: dice.isHeld ? dice.value : Math.floor(Math.random() * 6 + 1)
+        }));
+        return newDice;
+      });
+    }
   }
 
   function holdDice(id) {
@@ -40,21 +49,28 @@ function App() {
 
   return (
     <main className="container">
-      <div className="dice--container">
-          {
-            allDice.map(dice => (
-              <Dice
-                key={dice.id}
-                id={dice.id} 
-                value={dice.value} 
-                isHeld={dice.isHeld} 
-                holdDice={holdDice}
-              />
-            ))
-          }
+      {tenzies && <Confetti/>}
+      <div>
+        <h1 className="title">Tenzies</h1>
+        <p className="instructions">
+          Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
+        </p>
       </div>
-      <button className="roll--button" onClick={rollDice}>
-        Roll
+      <div className="dice--container">
+        {
+          allDice.map(dice => (
+            <Dice
+              key={dice.id}
+              id={dice.id} 
+              value={dice.value} 
+              isHeld={dice.isHeld} 
+              holdDice={holdDice}
+            />
+          ))
+        }
+      </div>
+      <button className="roll--button" onClick={handleButtonClick}>
+        {tenzies ? "New Game": "Roll"}
       </button>
     </main>
   );
