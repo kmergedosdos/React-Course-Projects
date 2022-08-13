@@ -61,8 +61,12 @@ function App() {
           </div>
           <div>
             {
-              checked ? score :
-              <button className="check-button" onClick={checkAnswers}>Check answers</button>
+              !checked ? 
+              <button className="check-button" onClick={checkAnswers}>Check answers</button> :
+              <div className="results">
+                <p>You scored {`${score}/${triviaData.length}`} correct answers</p>
+                <button className="play-again-button" onClick={() => {}}>Play again</button>
+              </div>
             }
           </div>
         </div>

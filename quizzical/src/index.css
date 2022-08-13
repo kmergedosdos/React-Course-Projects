@@ -136,7 +136,7 @@ button, span {
   border-top: 1px solid #DBDEF0;
 }
 
-.check-button {
+.check-button, .play-again-button {
   color: #F5F7FB;
   background-color: #4D5B9E;
   border: none;
@@ -145,4 +145,15 @@ button, span {
   font-size: 10px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.results {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.results p {
+  font-size: 13px;
+  font-weight: 700;
 }
