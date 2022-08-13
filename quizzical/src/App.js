@@ -8,6 +8,9 @@ function App() {
 
   const [start, setStart] = useState(false);
   const [triviaData, setTriviaData] = useState([]);
+  const [selectedAnswers, setSelectedAnswers] = useState(['', '', '', '', ''])
+  const [score, setScore] = useState(0);
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     fetch('https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple')
@@ -17,6 +20,21 @@ function App() {
       })
       .catch(err => console.log(err))
   }, [])
+
+  function selectAnswerForNum(num, answer) {
+    setSelectedAnswers(prevAnswers => {
+      let newAnswers = prevAnswers;
+      newAnswers[num] = answer;
+      return newAnswers;
+    });
+  }
+
+  function checkAnswers() {
+    selectedAnswers.forEach((ans, i) => {
+      if(ans === triviaData[i].correct_answer) setScore(prevScore => prevScore + 1);
+    });
+    setChecked(true);
+  }
 
   return (
     <div className="App">
@@ -34,12 +52,18 @@ function App() {
                   question={item.question}
                   correct_answer={item.correct_answer}
                   incorrect_answers={item.incorrect_answers}
+                  selectAnswerForNum={selectAnswerForNum}
+                  num={i}
+                  checked={checked}
                 />
               ))
             }
           </div>
           <div>
-            <button className="check-button">Check answers</button>
+            {
+              checked ? score :
+              <button className="check-button" onClick={checkAnswers}>Check answers</button>
+            }
           </div>
         </div>
       }

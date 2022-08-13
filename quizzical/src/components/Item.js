@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import he from 'he';
 
-const Item = ({ question, correct_answer, incorrect_answers}) => {
+const Item = ({ question, correct_answer, incorrect_answers, selectAnswerForNum, num, checked}) => {
    const [choices, setChoices] = useState([])
 
    useEffect(() => {
@@ -32,22 +33,40 @@ const Item = ({ question, correct_answer, incorrect_answers}) => {
             selected: choice.value === value ? true : false
          }))
       ))
+      selectAnswerForNum(num, value);
    }
 
    return (
       <div className="item">
-         <h2 className="question">{question}</h2>
+         <h2 className="question">{he.decode(question)}</h2>
          <ul className="choices">
             {
-               choices.map(choice => (
-                  <li
-                     key={choice.value}
-                     className={choice.selected ? "active" : ""}
-                     onClick={() => select(choice.value)}
-                  >
-                     {choice.value}
-                  </li>
-               ))
+               choices.map(choice => {
+                  if (!checked) {
+                     return (
+                        <li
+                           key={choice.value}
+                           className={choice.selected ? "active" : ""}
+                           onClick={() => select(choice.value)}
+                        >
+                           {he.decode(choice.value)}
+                        </li>
+                     ); 
+                  } else {
+                     return (
+                        <li
+                           key={choice.value}
+                           className={
+                              choice.value === correct_answer ? "correct" : 
+                              choice.selected ? "incorrect" : ""
+                           }
+                           onClick={() => {}}
+                        >
+                           {he.decode(choice.value)}
+                        </li>
+                     );
+                  }
+               })
             }
          </ul>
          <hr/>

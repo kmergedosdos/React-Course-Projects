@@ -117,6 +117,18 @@ button, span {
   border: 1px solid #D6DBF5;
 }
 
+.item .choices li.correct {
+  background-color: #94D7A2;
+  border: 1px solid #94D7A2;
+  color: #293264;
+}
+
+.item .choices li.incorrect {
+  background-color: #F8BCBC;
+  border: 1px solid #F8BCBC;
+  color: #293264a3;
+}
+
 .item hr {
   margin-top: 12px;
   margin-bottom: 15px;
